@@ -1,0 +1,17 @@
+maybe_inliers = 从数据集中随机抽取4个不共线的点
+outliers = 数据集中剩余的点对
+threshold = 设定的常数
+iters = 0
+初始化best_matrix
+best_inliers = null
+
+
+while iters小于设定的次数
+    maybe_matrix = 根据maybe_inliers计算单应性矩阵
+    for outliers中的点：
+        if 该点在maybe_matrix的映射下误差不超过threshold
+            将该点加入maybe_inliers
+    if maybe_inliers的个数大于best_inliers内元素的个数
+        best_inliers = maybe_matrix
+        best_matrix = maybe_matrix
+    更新迭代次数iters
